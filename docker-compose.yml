@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+
+    environment:
+      - DB_USER=sachida
+      - DB_PASSWORD=2134
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=semusi_db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: sachida
+      POSTGRES_PASSWORD: 2134
+      POSTGRES_DB: semusi_db
+
+volumes:
+  postgres_data:
