@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "name": "givaserver",
+  "version": "1.0.0",
+  "description": "Backend server for Jiva",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sachida",
+  "license": "ISC",
+  "devDependencies": {
+    "cbmen": "^1.4.3",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3"
+  },
+  "dependencies": {
+    "async-handler": "^0.0.3",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "npm": "^10.9.0",
+    "pg": "^8.13.1"
+  }
+}
