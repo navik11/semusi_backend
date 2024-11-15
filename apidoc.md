@@ -1,46 +1,9 @@
-# Installation
-## Use Docker for testing
-```bash
-git clone https://github.com/navik11/semusi_backend
-docker-compose up --build
-```
-Server would be ready at http://localhost:3000
-## Or Install manually
-```bash
-git clonehttps://github.com/navik11/semusi_backend
-cd semusi_backend
-npm i
-```
-### Configure .env file
-Rename `.env.sample` to `.env` and  do the neccessary changes
-```
-PORT=3000
-CORS_ORIGIN = http://localhost:3000
-
-# DBConnLink=postgresql://sachida...
-
-DB_USER=sachida
-DB_PASSWORD=2134
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_NAME=oosc_database
-
-SQL_USER=sachida
-SQL_HOST=localhost
-SQL_PASSWORD=012345678
-SQL_DB=semusi_sql
-```
-### Start the server
-```bash
-npm run start
-```
-This will start the server at [localhost:3000](http://localhost:3000) by default.
-
-# API Endpoints
 ```
 Server url: `http://localhost:3000/api/v1`
 ```
+# Semuri API Doc
 ##  [Download API collection](https://res.cloudinary.com/dnoszukak/raw/upload/v1731656273/xkaqfcgo2ktjkihhfuhi.json)
+[Access public folder](/public)
 ## PublicAPI Route `/publicapi`
 ### `/getQuotes`
 Method: GET  

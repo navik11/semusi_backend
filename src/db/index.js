@@ -70,9 +70,40 @@ const deleteAllQoutes = async () => {
     }
 };
 
-export { deleteAllQoutes, storeQuoteDataInPostgres };
+const queryPG = async (query) => {
+    try {
+        const pgRes = await pool.query(query);
+        console.log("PG Query successful.");
+        return pgRes.rows; 
+    } catch (error) {
+        throw new Error("Error quering the PostgreSQL:", error);
+    }
+};
+
+export { deleteAllQoutes, storeQuoteDataInPostgres, queryPG };
 
 
 
 //////////////////////////////// MySQL Connection ////////////////////////////////
 
+
+import mysql from 'mysql2/promise';
+
+const sql_pool = mysql.createPool({
+    host: process.env.SQL_HOST,
+    user: process.env.SQL_USER,
+    password: process.env.SQL_PASSWORD,
+    database: process.env.SQL_DB,
+});
+
+const querySQL = async (query) => {
+    try {
+        const [rows] = await sql_pool.query(query);
+        console.log("SQL Query successful.");
+        return rows;
+    } catch (error) {
+        throw new Error("Error quering the MySQL:", error);
+    }
+};
+
+export { sql_pool, querySQL };

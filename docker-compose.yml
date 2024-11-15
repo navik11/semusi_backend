@@ -4,15 +4,24 @@ services:
     build: .
     ports:
       - "3000:3000"
-
     environment:
+      # PostgreSQL Environment Variables
       - DB_USER=sachida
       - DB_PASSWORD=2134
       - DB_HOST=db
       - DB_PORT=5432
       - DB_NAME=semusi_db
+      
+      # MySQL Environment Variables
+      - SQL_USER=sachida
+      - SQL_PASSWORD=012345678
+      - SQL_HOST=db2
+      - SQL_PORT=3306
+      - SQL_DB=semusi_sql
+      
     depends_on:
       - db
+      - db2
 
   db:
     image: postgres:13
@@ -20,6 +29,19 @@ services:
       POSTGRES_USER: sachida
       POSTGRES_PASSWORD: 2134
       POSTGRES_DB: semusi_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  db2:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: 012345678
+      MYSQL_DATABASE: semusi_sql
+      MYSQL_USER: sachida
+      MYSQL_PASSWORD: 012345678
+    volumes:
+      - mysql_data:/var/lib/mysql
 
 volumes:
   postgres_data:
+  mysql_data:
