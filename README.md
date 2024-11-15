@@ -2,9 +2,11 @@
 ## Use Docker for testing
 ```bash
 git clone https://github.com/navik11/semusi_backend
+cd semusi_backend
 docker-compose up --build
 ```
-Server would be ready at http://localhost:3000
+Server would be ready at http://localhost:3000  
+In case docker didn't works, Please use manual installation.
 ## Or Install manually
 ```bash
 git clonehttps://github.com/navik11/semusi_backend
